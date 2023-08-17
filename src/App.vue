@@ -1,0 +1,12 @@
+<template>
+  <VApp>
+    <RouterView></RouterView>
+  </VApp>
+</template>
+<!--
+<template>
+  <VApp>
+    <RouterView></RouterView>
+  </VApp>
+</template>
+-->
