@@ -9,25 +9,15 @@
           <thead style="background: orange; font-size: 24px;text-shadow: 0.1em 0.1em 0.2em rgb(100, 100, 100)">
             <tr>
               <th>訂單編號</th>
-<<<<<<< HEAD
               <th>下單日期時間</th>
               <th>總金額</th>
               <th>購買商品</th>
               <th>備註</th>
-=======
-              <th>日期</th>
-              <th>總金額</th>
-              <th>商品</th>
->>>>>>> 6b2df09eb06c670d52a19dd3fcfa9a50bc901fc3
             </tr>
           </thead>
           <tbody>
             <tr v-for="(order,i) in orders" :key="order._id">
-<<<<<<< HEAD
               <td>{{(i+1)}}</td>
-=======
-              <td>{{ new Date(order.date).getFullYear().toString()+month(order)+day(order)+'&nbsp;'+'&nbsp;'+'&nbsp;'+(i+1)}}</td>
->>>>>>> 6b2df09eb06c670d52a19dd3fcfa9a50bc901fc3
               <td>{{ new Date(order.date).toLocaleString() }}</td>
               <td>{{ order.total }}</td>
               <td>
@@ -75,18 +65,18 @@ const orders = ref([]);
   }
 })()
 
-const month = (order) => {
-  if (new Date(order.date).getMonth() < 10) {
-    return `0${new Date(order.date).getMonth() + 1}`
-  } else {
-    return `${new Date(order.date).getMonth() + 1}`
-  }
-}
-const day = (order) => {
-  if (new Date(order.date).getDate() < 10) {
-    return `0${new Date(order.date).getDate()}`
-  } else {
-    return `${new Date(order.date).getDate()}`
-  }
-}
+// const month = (order) => {
+//   if (new Date(order.date).getMonth() < 10) {
+//     return `0${new Date(order.date).getMonth() + 1}`
+//   } else {
+//     return `${new Date(order.date).getMonth() + 1}`
+//   }
+// }
+// const day = (order) => {
+//   if (new Date(order.date).getDate() < 10) {
+//     return `0${new Date(order.date).getDate()}`
+//   } else {
+//     return `${new Date(order.date).getDate()}`
+//   }
+// }
 </script>

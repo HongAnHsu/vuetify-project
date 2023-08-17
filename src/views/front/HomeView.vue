@@ -1,6 +1,5 @@
 <template>
   <v-container>
-<<<<<<< HEAD
     <v-row>
     <swiper
       :direction="'horizontal'"
@@ -17,25 +16,6 @@
     </swiper>
   </v-row>
 </v-container>
-=======
-    <v-carousel hide-delimiters  class="carousel" >
-      <v-carousel-item
-        src="./src/assets/img/pic1.png"
-        cover
-      ></v-carousel-item>
-
-      <v-carousel-item
-        src="./src/assets/img/店內圖片.jpg"
-        cover
-      ></v-carousel-item>
-
-      <v-carousel-item
-        src="./src/assets/img/大畫面(輪播1).png"
-        cover
-      ></v-carousel-item>
-    </v-carousel>
-  </v-container>
->>>>>>> 6b2df09eb06c670d52a19dd3fcfa9a50bc901fc3
   <v-container>
     <v-row style="width: 75%; margin: auto;">
       <v-col cols="12">
@@ -50,7 +30,6 @@
       </v-col>
     </v-row>
   </v-container>
-<<<<<<< HEAD
   <v-footer
     class="text-center d-flex flex-column"
   >
@@ -80,8 +59,6 @@
     </div>
   </v-footer>
 
-=======
->>>>>>> 6b2df09eb06c670d52a19dd3fcfa9a50bc901fc3
 </template>
 
 <script setup>
@@ -125,7 +102,6 @@ const products = ref([]);
   }
 })()
 
-<<<<<<< HEAD
 const infos = [
   { icon: 'mdi-facebook', href: 'https://www.facebook.com/foundburger/photos?locale=zh_TW', color: 'blue' },
   { icon: 'mdi-instagram', href: 'https://www.instagram.com/foundburger/', color: 'black' },
@@ -141,8 +117,6 @@ const slides = [
   // ... 可以繼續添加其他圖片
 ]
 
-=======
->>>>>>> 6b2df09eb06c670d52a19dd3fcfa9a50bc901fc3
 </script>
 
 <style>
@@ -151,7 +125,6 @@ const slides = [
   width: 60%;
   height: 0;
   padding-bottom: 10%;
-<<<<<<< HEAD
   animation: 0.1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
@@ -219,8 +192,5 @@ const slides = [
     opacity: 1;
     transform: scale(1.1);
   }
-=======
-
->>>>>>> 6b2df09eb06c670d52a19dd3fcfa9a50bc901fc3
 }
 </style>

@@ -31,7 +31,6 @@
             color="orange"
             style="background: white;"
           ></VTextField>
-<<<<<<< HEAD
           <div class="text-center">
             <v-row>
               <v-col cols="12">
@@ -40,10 +39,6 @@
                 <v-btn color="white" @click="gotoRegister">前往註冊</v-btn>
               </v-col>
             </v-row>
-=======
-          <div class="text-center" style="margin:10px auto;">
-            <v-btn type="submit" color="green" style="">登入</v-btn>
->>>>>>> 6b2df09eb06c670d52a19dd3fcfa9a50bc901fc3
           </div>
         </v-form>
       </v-col>
