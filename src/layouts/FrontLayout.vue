@@ -39,8 +39,6 @@
 
       <VBtn v-if="!isMobile && isLogin" variant="text" prepend-icon="mdi-logout" @click="logout" color="white">登出</VBtn>
 
-      <VBtn v-if="!isMobile &amp;&amp; isLogin" variant="text" prepend-icon="mdi-logout" @click="logout" color="white" >登出</VBtn>
-
   <v-main style="background: black;">
     <RouterView :key="$route.path"></RouterView>
   </v-main>
