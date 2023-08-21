@@ -1,6 +1,7 @@
 <template>
   <v-container>
     <v-row>
+      <v-col cols="12" >
     <swiper
       :direction="'horizontal'"
       :spaceBetween="0"
@@ -9,22 +10,23 @@
       class="mySwiper"
       :modules="modules"
     >
-    <swiper-slide class="swiper-custom-slide" v-for="(slide, index) in slides" :key="index">
-      <v-img :src="slide.src" class="slide-content"></v-img>
+    <swiper-slide class="swiper-custom-slide mx-auto" v-for="(slide, index) in slides" :key="index">
+      <v-img :src="slide.src" class="slide-content mx-auto" aspectRatio="16/9" cover maxWidth="1000" ></v-img>
     </swiper-slide>
-
-    </swiper>
+  </swiper>
+</v-col>
   </v-row>
 </v-container>
-  <v-container>
-    <v-row style="width: 100%; margin: auto;">
-      <v-col cols="12">
-        <div style="
-          text-align: center;
-          ">
+  <v-container style="">
+    <v-row style="width: 100%; margin: auto;position: relative;">
+      <v-col cols="12" style="position: sticky; top: 50px; z-index: 1;">
+        <div
+          style="text-align: center; background: rgb(33, 33, 33); position: sticky; top: 100px; z-index: 1; padding: 10px;"
+        >
           <h1 style="color: white;">餐點</h1>
         </div>
       </v-col>
+
       <v-col
       cols="12"  md="6" lg="4" xl="3" sm=""
       v-for="product in products"
@@ -89,7 +91,7 @@ const slides = [
 
 <style>
 .carousel{
-  margin: 0 auto;
+  /* margin: 0 auto; */
   width: 60%;
   height: 0;
   padding-bottom: 10%;
@@ -101,19 +103,19 @@ const slides = [
   max-width: 100%; /* 最大寬度，可以依需求調整 */
   margin: auto ;
   height: 70vh; /* 高度自動調整，適應內容 */
-  transform: translate(2em);
+  /* transform: translate(2em); */
 }
 
 .slide-image {
   width: 100%;
   height: 100%;
-  position: relative;
+  /* position: relative; */
 }
 
 .slide-image img {
   width: 100%;
   height: auto;
-  position: absolute;
+  /* position: absolute; */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -123,7 +125,7 @@ const slides = [
   width: 100%;
   height: 70vh;
   overflow: hidden;
-  position: relative;
+  /* position: relative; */
   background-color: #000;
 }
 
@@ -131,10 +133,11 @@ const slides = [
   width: 100%;
   height: 100%;
   background-size: cover;
-  position: absolute;
+  /* position: absolute; */
   animation: slide 20s infinite;
   opacity: 1;
   transform: scale(1.2);
+
 }
 
 .swiper-custom-slide .slide-content:nth-child(2) {

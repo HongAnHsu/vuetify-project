@@ -12,7 +12,7 @@
       box-shadow: 2px 2px 2px 4px rgba(199, 186, 186, 0.883);
     "
   >
-    <VImg :src="image" height="220" cover=""></VImg>
+    <VImg :src="image" height="auto" ></VImg>
     <VCardTitle>
       <VCardText style="font-size: 24px; font-weight: bolder;">{{ name }}</VCardText>
     </VCardTitle>
@@ -37,9 +37,10 @@
                 <v-col cols="12" sm="6" md="4" >
                   <v-img :src="image"></v-img>
                 </v-col>
-                <div style="margin: 0 auto; font-size: 30px;">{{ name }}</div>
+                <div style="margin: 0 auto; font-size: 30px;">{{ name }}({{ category }})</div>
               </v-row>
               <v-col >
+                <br><p style="font-size: 20px;">產品介紹:<br>{{ description }}</p><br>
               <v-form :disabled="isSubmitting" @submit.prevent="addCart">
                 <v-text-field
                   v-model.number="quantity"
@@ -47,7 +48,6 @@
                   label="數量"
                   min="0"
                 ></v-text-field>
-                <p style="color: darkred;">總金額:${{ price*quantity }}</p>
               </v-form>
             </v-col>
             </v-container>
@@ -65,7 +65,7 @@
             font-weight: 1000;
             box-shadow: 2px 2px 2px 2px  rgba(0, 0, 0, 0.883);
             ">
-            加入購物車
+            總金額:${{ price*quantity }}
             </v-btn>
 
           </v-card-actions>

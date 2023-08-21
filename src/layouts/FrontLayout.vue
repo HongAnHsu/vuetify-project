@@ -22,10 +22,10 @@
   </VNavigationDrawer>
   <VAppBar color="#f90" style="box-shadow:2px 2px 2px 1px rgba(0, 0, 0, 0.4);">
     <VContainer class="d-flex align-center">
-      <VBtn to="/" :active="false" >
-        <VImg src="@/assets/img/123.png"></VImg>
-        <h1 style="text-shadow: 0.1em 0.1em 0.2em rgb(23, 22, 22)">找。漢堡 FoundBurger</h1>
-      </VBtn>
+        <div class="d-flex align-center"  @click="home">
+          <VImg src="@/assets/img/123.png"  aspect-ratio="1" cover  min-width="64px"></VImg>
+          <h1 style="text-shadow: 0.1em 0.1em 0.2em rgb(23, 22, 22);margin-left: 20px;">找。漢堡 FoundBurger</h1>
+      </div>
       <VSpacer></VSpacer>
       <VAppBarNavIcon v-if="isMobile" @click="drawer = true" color="white"></VAppBarNavIcon>
       <template v-if="!isMobile" >
@@ -74,8 +74,10 @@ import { storeToRefs } from 'pinia'
 import { apiAuth } from '@/plugins/axios'
 import { useSnackbar } from 'vuetify-use-dialog'
 import { Icon } from '@iconify/vue'
+import { useRouter } from 'vue-router'
 
 const createSnackbar = useSnackbar()
+const router = useRouter()
 
 const user = useUserStore()
 const { isLogin, isAdmin, cart } = storeToRefs(user)
@@ -95,6 +97,10 @@ const navItems = computed(() => {
     { to: '/admin', text: '管理', icon: 'mdi-cog', show: isLogin.value && isAdmin.value }
   ]
 })
+
+const home = () => {
+  router.push('/')
+}
 
 const logout = async () => {
   try {
