@@ -17,12 +17,16 @@
   </v-row>
 </v-container>
   <v-container>
-    <v-row style="width: 75%; margin: auto;">
+    <v-row style="width: 100%; margin: auto;">
       <v-col cols="12">
-        <h1 style="color: white;">餐點</h1>
+        <div style="
+          text-align: center;
+          ">
+          <h1 style="color: white;">餐點</h1>
+        </div>
       </v-col>
       <v-col
-      cols="12" md="6" lg="3"
+      cols="12"  md="6" lg="4" xl="3" sm=""
       v-for="product in products"
       :key="product._id"
       >
@@ -30,35 +34,6 @@
       </v-col>
     </v-row>
   </v-container>
-  <v-footer
-    class="text-center d-flex flex-column"
-  >
-    <div style="font-family: 'Courier New', Courier, monospace; font-size: 24px; font-weight: 1000;">
-      Follow us
-    </div>
-    <div>
-      <template
-        v-for="info in infos"
-        :key="info.icon">
-        <v-btn
-        class="mx-4"
-        :icon="info.icon"
-        variant="text"
-        :href="info.href"
-        ><Icon variant="text" :icon="info.icon" :color="info.color"></Icon></v-btn>
-      </template>
-    </div>
-    <div class="pt-0">
-
-    </div>
-
-    <v-divider></v-divider>
-
-    <div>
-      {{ new Date().getFullYear() }} — <strong>&copy;製作人:許宏安</strong>
-    </div>
-  </v-footer>
-
 </template>
 
 <script setup>
@@ -66,7 +41,6 @@ import { api } from '@/plugins/axios'
 import { ref } from 'vue'
 import { useSnackbar } from 'vuetify-use-dialog'
 import ProductCard from '@/components/ProductCard.vue'
-import { Icon } from '@iconify/vue'
 
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from 'swiper/vue'
@@ -101,12 +75,6 @@ const products = ref([]);
     })
   }
 })()
-
-const infos = [
-  { icon: 'mdi-facebook', href: 'https://www.facebook.com/foundburger/photos?locale=zh_TW', color: 'blue' },
-  { icon: 'mdi-instagram', href: 'https://www.instagram.com/foundburger/', color: 'black' },
-  { icon: 'fa6-brands:line', href: 'https://liff.line.me/1645278921-kWRPP32q/?accountId=064thabc', color: 'green' }
-]
 
 const modules = [EffectFade, Autoplay]
 

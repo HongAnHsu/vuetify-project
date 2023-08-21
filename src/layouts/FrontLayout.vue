@@ -40,6 +40,30 @@
   <v-main style="background: black;">
     <RouterView :key="$route.path"></RouterView>
   </v-main>
+  <v-footer
+    class="text-center d-flex flex-column"
+    style="
+    flex: 0 1 auto;"
+  >
+    <div style="font-family: 'Courier New', Courier, monospace; font-size: 24px; font-weight: 1000;">
+      Follow us
+    </div>
+    <div>
+      <template
+        v-for="info in infos"
+        :key="info.icon">
+        <v-btn
+        class="mx-4"
+        :icon="info.icon"
+        variant="text"
+        :href="info.href"
+        ><Icon variant="text" :icon="info.icon" :color="info.color"></Icon></v-btn>
+      </template>
+    </div>
+    <div class="pt-0">
+      {{ new Date().getFullYear() }} — <strong>&copy;製作人:許宏安</strong>
+    </div>
+  </v-footer>
 </template>
 
 <script setup>
@@ -49,6 +73,7 @@ import { useUserStore } from '@/store/user'
 import { storeToRefs } from 'pinia'
 import { apiAuth } from '@/plugins/axios'
 import { useSnackbar } from 'vuetify-use-dialog'
+import { Icon } from '@iconify/vue'
 
 const createSnackbar = useSnackbar()
 
@@ -96,4 +121,10 @@ const logout = async () => {
     })
   }
 }
+
+const infos = [
+  { icon: 'mdi-facebook', href: 'https://www.facebook.com/foundburger/photos?locale=zh_TW', color: 'blue' },
+  { icon: 'mdi-instagram', href: 'https://www.instagram.com/foundburger/', color: 'black' },
+  { icon: 'fa6-brands:line', href: 'https://liff.line.me/1645278921-kWRPP32q/?accountId=064thabc', color: 'green' }
+]
 </script>
