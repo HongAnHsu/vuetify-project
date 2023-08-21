@@ -1,0 +1,1 @@
+import{aG as a,a4 as e,a6 as t,a7 as o,af as r}from"./index-f6e31abf.js";import{V as c}from"./VContainer-ce4e7f04.js";const n={};function s(f,_){return e(),t(c,null,{default:o(()=>[r(" 123 ")]),_:1})}const d=a(n,[["render",s]]);export{d as default};
