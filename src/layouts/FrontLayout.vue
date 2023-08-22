@@ -85,7 +85,7 @@ const createSnackbar = useSnackbar()
 const router = useRouter()
 
 const user = useUserStore()
-const { isLogin, isAdmin, cart } = storeToRefs(user)
+const { isLogin, isAdmin } = storeToRefs(user)
 
 const { mobile } = useDisplay()
 const isMobile = computed(() => mobile.value)
