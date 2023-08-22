@@ -25,7 +25,6 @@
           星期五&nbsp;:&nbsp;11:30–14:30, 17:00–20:30<br>
           星期六&nbsp;:&nbsp;10:00–15:00, 17:00–20:00<br>
           星期日&nbsp;:&nbsp;10:00–15:30<br><br>
-
           </p>
       </v-col>
       <v-col cols="12" md="5" style="padding: 20px; background: rgb(51, 51, 51)">
@@ -41,3 +40,19 @@
     </v-row>
   </v-container>
 </template>
+
+<style>
+p{
+  font-size: 18px;
+  @media (min-width: 576px) {
+    font-size: 24px;
+  }
+}
+
+h1{
+  font-size: 30px;
+  @media (min-width: 576px) {
+    font-size: 40px;
+  }
+}
+</style>

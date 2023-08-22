@@ -2,7 +2,7 @@
   <VContainer>
     <VRow>
       <VCol cols="12">
-        <h1>訂單</h1>
+        <h1 style="color: white;">訂單</h1>
       </VCol>
       <VCol cols="12" style="box-shadow:2px 2px 2px 4px rgba(255, 255, 255, 0.7);background: white;">
         <VTable>

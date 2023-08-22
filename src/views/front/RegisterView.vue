@@ -13,6 +13,20 @@
       <VCol cols="12">
         <VForm :disabled="isSubmitting" @submit.prevent="submit">
           <VTextField
+            v-model="firstname.value.value"
+            :error-messages="firstname.errorMessage.value"
+            label="姓氏"
+            style="background: white;"
+            color="orange"
+          ></VTextField>
+          <VTextField
+            v-model="lastname.value.value"
+            :error-messages="lastname.errorMessage.value"
+            label="名稱"
+            style="background: white;"
+            color="orange"
+          ></VTextField>
+          <VTextField
             v-model="account.value.value"
             :error-messages="account.errorMessage.value"
             label="帳號"
@@ -104,7 +118,13 @@ const schema = yup.object({
     .required('密碼必填')
     .min(4, '密碼最少 4 個字')
     .max(20, '密碼最多 20 個字')
-    .oneOf([yup.ref('password')], '密碼不一致')
+    .oneOf([yup.ref('password')], '密碼不一致'),
+  firstname: yup
+    .string()
+    .required('姓氏必填'),
+  lastname: yup
+    .string()
+    .required('名稱必填')
 })
 
 const { handleSubmit, isSubmitting } = useForm({
@@ -115,13 +135,17 @@ const account = useField('account')
 const email = useField('email')
 const password = useField('password')
 const passwordConfirm = useField('passwordConfirm')
+const firstname = useField('firstname')
+const lastname = useField('lastname')
 
 const submit = handleSubmit(async (values) => {
   try {
     await api.post('/users', {
       account: values.account,
       email: values.email,
-      password: values.password
+      password: values.password,
+      firstname: values.firstname,
+      lastname: values.lastname
     })
     createSnackbar({
       text: '註冊成功',

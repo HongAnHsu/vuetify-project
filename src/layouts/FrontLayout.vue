@@ -1,30 +1,31 @@
 <template>
   <VNavigationDrawer v-if="isMobile" v-model="drawer" location="right" temporary="temporary">
-      <VList nav="nav">
+    <div v-if="isLogin" style="margin: 20px;color: orange;">
+      <Icon variant="text" icon="mdi-account"></Icon>&nbsp;您好，{{ info.firstname+info.lastname }}
+    </div>
+    <v-divider
+      :thickness="3"
+      class="border-opacity-50"
+      color="warning"
+    ></v-divider>
+      <VList nav="nav" style="margin: 20px;">
         <template v-for="navItem in navItems" :key="navItem.to">
-          <VListItem v-if="navItem.show" :to="navItem.to">
-            <template prepend="#prepend">
-              <VIcon :icon="navItem.icon"></VIcon>
-            </template>
-            <template append="#append">
-              <VBadge color="success" :content="cart.toString()" v-if="navItem.to === '/cart'"></VBadge>
-            </template>
-            <VListItemTitle>{{ navItem.text }}</VListItemTitle>
+          <VListItem v-if="navItem.show" :to="navItem.to" >
+              <Icon :icon="navItem.icon"></Icon>&nbsp;{{ navItem.text }}
+              <!-- <VBadge color="success" :content="cart.toString()" v-if="navItem.to === '/cart'" b></VBadge> -->
           </VListItem>
         </template>
-        <VListItem v-if="isLogin" @click="logout" >
-          <template prepend="#prepend">
-            <VIcon icon="mdi-logout"></VIcon>
-          </template>
-          <VListItemTitle>登出</VListItemTitle>
+        <VListItem v-if="isLogin" @click="logout">
+            <VIcon icon="mdi-logout"></VIcon>登出
         </VListItem>
       </VList>
+
   </VNavigationDrawer>
   <VAppBar color="#f90" style="box-shadow:2px 2px 2px 1px rgba(0, 0, 0, 0.4);">
     <VContainer class="d-flex align-center">
         <div class="d-flex align-center"  @click="home">
-          <VImg src="@/assets/img/123.png"  aspect-ratio="1" cover  min-width="64px"></VImg>
-          <h1 style="text-shadow: 0.1em 0.1em 0.2em rgb(23, 22, 22);margin-left: 20px;">找。漢堡 FoundBurger</h1>
+          <VImg src="@/assets/img/bogo.png"  aspect-ratio="1" cover  min-width="64px"></VImg>
+          <h1 style="text-shadow: 0.1em 0.1em 0.2em rgb(23, 22, 22);cursor:default ;" class="title-name" >找。漢堡 </h1>
       </div>
       <VSpacer></VSpacer>
       <VAppBarNavIcon v-if="isMobile" @click="drawer = true" color="white"></VAppBarNavIcon>
@@ -34,6 +35,9 @@
           </VBtn>
         </template>
       </template>
+      <div v-if="isLogin && !isMobile" >
+        <Icon variant="text" icon="mdi-account" style="font-size: 25px;margin: -6px;"></Icon>&nbsp;&nbsp;&nbsp;您好，{{ info.firstname+info.lastname }}
+      </div>
     </VContainer>
     <VBtn v-if="!isMobile && isLogin" variant="text" prepend-icon="mdi-logout" @click="logout" >登出</VBtn>
   </VAppBar>
@@ -57,6 +61,7 @@
         :icon="info.icon"
         variant="text"
         :href="info.href"
+        target="_blank"
         ><Icon variant="text" :icon="info.icon" :color="info.color"></Icon></v-btn>
       </template>
     </div>
@@ -86,10 +91,28 @@ const { mobile } = useDisplay()
 const isMobile = computed(() => mobile.value)
 
 const drawer = ref(false)
+const info = ref([]);
+
+(async () => {
+  try {
+    const { data } = await apiAuth.get('/users/me')
+    info.value = data.result
+    // console.log(data.result)
+  } catch (error) {
+    createSnackbar({
+      text: error.response.data.message,
+      showCloseButton: false,
+      snackbarProps: {
+        timeout: 3000,
+        color: 'red',
+        location: 'bottom'
+      }
+    })
+  }
+})()
 
 const navItems = computed(() => {
   return [
-
     { to: '/local', text: '店面資訊', icon: 'mdi-map', show: true },
     { to: '/login', text: '登入/註冊', icon: 'mdi-login', show: !isLogin.value },
     { to: '/cart', text: '購物車', icon: 'mdi-cart', show: isLogin.value },
@@ -133,4 +156,15 @@ const infos = [
   { icon: 'mdi-instagram', href: 'https://www.instagram.com/foundburger/', color: 'black' },
   { icon: 'fa6-brands:line', href: 'https://liff.line.me/1645278921-kWRPP32q/?accountId=064thabc', color: 'green' }
 ]
+
 </script>
+
+<style>
+.title-name{
+  font-size: 25px;
+  /* display: none;
+  @media (min-width: 576px) {
+    display: block;
+  } */
+}
+</style>

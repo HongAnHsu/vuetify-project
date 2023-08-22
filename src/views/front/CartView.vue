@@ -2,10 +2,10 @@
   <VContainer>
     <VRow>
       <VCol cols="12">
-        <h1>購物車</h1>
+        <h1 style="color: white;">購物車</h1>
       </VCol>
       <VCol cols="12" style="box-shadow:2px 2px 2px 4px rgba(255, 255, 255, 0.7);background: white;" >
-        <VTable>
+        <VTable class="table">
           <thead style="background: orange;font-size: 24px;text-shadow: 0.1em 0.1em 0.2em rgb(100, 100, 100)">
             <tr>
               <th>圖片</th>
@@ -14,7 +14,6 @@
               <th>數量</th>
               <th>總金額</th>
               <th>移除</th>
-              <th>備註</th>
             </tr>
           </thead>
           <tbody>
@@ -32,9 +31,6 @@
               <td>{{ item.quantity * item.product.price }}</td>
               <td>
                 <VBtn color="red" variant="text" icon="mdi-delete" @click="updateCart(item.product._id, item.quantity * -1)"></VBtn>
-              </td>
-              <td>
-                <p></p>
               </td>
             </tr>
             <tr v-if="cart.length === 0">

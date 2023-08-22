@@ -104,6 +104,10 @@ const slides = [
   margin: auto ;
   height: 70vh; /* 高度自動調整，適應內容 */
   /* transform: translate(2em); */
+  display: none;
+  @media (min-width: 576px) {
+    display: block;
+  }
 }
 
 .slide-image {
