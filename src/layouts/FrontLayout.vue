@@ -1,6 +1,6 @@
 <template>
   <VNavigationDrawer v-if="isMobile" v-model="drawer" location="right" temporary="temporary">
-    <div v-if="isLogin" style="margin: 20px;color: orange;">
+    <div v-if="isLogin" style="margin: 20px;color: orange;cursor: default;">
       <Icon variant="text" icon="mdi-account"></Icon>&nbsp;您好，{{ info.firstname+info.lastname }}
     </div>
     <v-divider
@@ -35,7 +35,7 @@
           </VBtn>
         </template>
       </template>
-      <div v-if="isLogin && !isMobile" >
+      <div v-if="isLogin && !isMobile" style="cursor: default;" >
         <Icon variant="text" icon="mdi-account" style="font-size: 25px;margin: -6px;"></Icon>&nbsp;&nbsp;&nbsp;您好，{{ info.firstname+info.lastname }}
       </div>
     </VContainer>
