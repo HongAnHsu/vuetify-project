@@ -2,13 +2,13 @@
   <VContainer>
     <VRow>
       <VCol cols="12">
-        <h1 style="color: white;">訂單</h1>
+        <h1 style="color: white;text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;">訂單歷史</h1>
       </VCol>
-      <VCol cols="12" style="box-shadow:2px 2px 2px 4px rgba(255, 255, 255, 0.7);background: white;">
-        <VTable>
+      <VCol cols="12" style="box-shadow:2px 2px 2px 4px rgba(255, 255, 255, 0.5);background: white;">
+        <VTable >
           <thead style="background: orange; font-size: 24px;text-shadow: 0.1em 0.1em 0.2em rgb(100, 100, 100)">
             <tr>
-              <th>訂單編號</th>
+              <th style="text-align: center;">訂單編號</th>
               <th>下單日期時間</th>
               <th>總金額</th>
               <th>購買商品</th>
@@ -17,9 +17,9 @@
           </thead>
           <tbody>
             <tr v-for="(order,i) in orders" :key="order._id">
-              <td>{{(i+1)}}</td>
+              <td style="text-align: center;">{{(i+1)}}</td>
               <td>{{ new Date(order.date).toLocaleString() }}</td>
-              <td>{{ order.total }}</td>
+              <td>{{ order.total }}元</td>
               <td>
                 <ul>
                   <li v-for="item in order.cart" :key="item._id">

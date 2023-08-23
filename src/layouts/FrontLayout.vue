@@ -25,7 +25,13 @@
     <VContainer class="d-flex align-center">
         <div class="d-flex align-center"  @click="home">
           <VImg src="@/assets/img/bogo.png"  aspect-ratio="1" cover  min-width="64px"></VImg>
-          <h1 style="text-shadow: 0.1em 0.1em 0.2em rgb(23, 22, 22);cursor:default ;" class="title-name" >找。漢堡 </h1>
+          <h1 style="
+          text-shadow: 0.1em 0.1em 0.2em rgb(23, 22, 22);
+          cursor:default;
+          text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+          font-size: 30px;"
+          class="title-name"
+          >&nbsp;&nbsp;找．漢堡 </h1>
       </div>
       <VSpacer></VSpacer>
       <VAppBarNavIcon v-if="isMobile" @click="drawer = true" color="white"></VAppBarNavIcon>

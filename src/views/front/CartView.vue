@@ -2,7 +2,7 @@
   <VContainer>
     <VRow>
       <VCol cols="12">
-        <h1 style="color: white;">購物車</h1>
+        <h1 style="color: white;text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;">購物車</h1>
       </VCol>
       <VCol cols="12" style="box-shadow:2px 2px 2px 4px rgba(255, 255, 255, 0.7);background: white;" >
         <VTable class="table">

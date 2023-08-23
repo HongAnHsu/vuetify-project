@@ -11,7 +11,7 @@
     </v-card-title>
     <v-row class="justify-space-evenly">
       <v-col cols="12" md="5" style="background: rgb(51, 51, 51); text-align: left; font-size: 24px; color: white;">
-        <h1 style="text-align: center;text-decoration: underline;font-weight: 1000;">找。漢堡 &nbsp;&nbsp; FoundBurger</h1>
+        <h1 style="text-align: center;text-decoration: underline;font-weight: 1000;text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;">找。漢堡 &nbsp;&nbsp; FoundBurger</h1>
         <br><br>
         <p style="text-align: center ;">
           地址:新北市,土城區,裕民路,92巷21弄12號<br>
